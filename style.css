@@ -1,0 +1,447 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    text-align: center;
+    margin: 30px auto;
+}
+
+.element, .element1, .element2, .element3, .element4, .element5, .element6, .element7, .element8, .element9{    
+    width: 400px;
+    height: 350px;
+    position: relative;
+    margin: 50px;  
+}
+
+.element1, .element2, .element3, .element4, .element5, .element6, .element8, .element9{
+    overflow: hidden;
+}
+
+.front{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.front img{
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    transition: all 1s;
+}
+
+.background{
+    background: linear-gradient(to bottom right, red, yellow);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    border: 5px solid #222;
+    z-index: -1;
+    position: absolute;
+    transition: all 1s;
+}
+
+.back-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.front{
+    transition: all 1s;
+}
+
+.element .background{
+    opacity: 0;
+    transform: scale(0);
+}
+
+.pname{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.desc{
+    font-size: 25px;
+}
+
+.icons{
+    font-size: 30px;
+    color: blue;
+}
+
+.icon{
+    cursor: pointer !important;
+}
+
+.element:hover .front{
+    height: 100px;
+    width: 100px;
+    left: calc(100% - 50px);
+    top: calc(50% - 50px);
+    border-radius: 50px;
+}
+
+.element:hover img{
+    box-shadow: 0 0 35px white, 0 0 20px blue;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
+.element:hover .background{
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Element 1 */
+
+.element1 .background{
+    opacity: 0;
+	transform:translateY(-100px);
+}
+
+.element1 .background::before{
+    content: "";
+    position: absolute;
+    top: 200px;
+	bottom: 200px;
+	right: 50px;
+	left: 50px;
+	border-right: 3px solid #fff;
+	border-left: 3px solid #fff;
+}
+
+.element1 .background::after{
+    position: absolute;
+	content: '';
+	top: 50px;
+	bottom: 50px;
+	right: 200px;
+	left: 200px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	transition:all 1s ease;
+}
+
+.element1:hover .front {
+    opacity: 0;
+    top: -100%;
+}
+
+.element1:hover .background{
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+.element1:hover .background::before{
+    top: 30px;
+    bottom: 30px;
+}
+
+.element1:hover .background::after{
+    left: 30px;
+    right: 30px;
+}
+
+/* Element 2 */
+.element2 .back-content{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transform: scale(0,1);
+    transition: all 1s;
+}
+
+.curtains{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -3;
+    display: flex;
+}
+
+.curtain{
+    width: 25%;
+    background-color: #222;
+    transform: scale(0,1);
+    transition: all 0.5s;
+}
+
+.element2:hover .front{
+    opacity: 0;
+}
+
+.element2:hover .background{ 
+    color: white;
+}
+
+.element2:hover .curtain{
+    transform: scale(1,1); 
+}
+
+.element2:hover .back-content{
+    transform: scale(1,1);
+    z-index: 100;
+}
+
+/* Element 3 */
+
+.element3 .background::before{
+    content: "";
+    position: absolute;
+    top: 200px;
+    bottom: 200px;
+    left: 30px;
+    right: 30px;
+    border-left: 3px solid white;
+    border-right: 3px solid white;
+    transition:all 1s ease;    
+}
+
+.element3 .background::after{
+    position: absolute;
+	content: '';
+	top: 50px;
+	bottom: 50px;
+	right: 200px;
+	left: 200px;
+	border-top: 3px solid #fff;
+	border-bottom: 3px solid #fff;
+	transition:all 1s ease;
+}
+
+.element3:hover .front{
+    opacity: 0;
+    transform: translateX(-250px) rotate(520deg);
+}
+
+.element3:hover .background::before{
+    top: 50px;
+    bottom: 50px;
+    left: 30px;
+    right: 30px;
+}
+
+.element3:hover .background::after{
+    left: 50px;
+    right: 50px;
+    top: 30px;
+    bottom: 30px;
+}
+
+/* element 4 */
+
+.element4 .front{
+    transform: skew(0deg);
+    opacity: 1;
+    transition: transform 0.5s, left 1s 0.5s, opacity 1s 0.5s;
+}
+
+.element4 .background{
+    transform: scale(0,1);
+    transition: all 1s 0.75s;
+}
+
+.element4:hover .front{
+    transform: skew(20deg);
+    left: -100%;
+    opacity: 0;
+}
+
+.element4:hover .background{
+    transform: scale(1,1);
+    z-index: 100;
+}
+
+/* Element 5 */
+
+.element5 .front{
+    transition: all 1s;
+}
+
+.element5 .back-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 1s;
+}
+
+.element5:hover .front{
+    transform: scale(0.4);
+    border: 8px solid whitesmoke;
+    top: 90px;
+    box-shadow:  0px 0px 8px 5px rgba(0,0,0,0.25);    
+}
+
+.element5:hover .back-content{
+    transform: translateY(-50px);
+}
+
+/* Element 6 */
+.element6 .front{
+    transition: all 0.5s;
+    /* display: none; */
+}
+
+.element6:hover .front{
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.element6 .background{
+    transition: all 1s 0.15s;
+}
+
+.element6:hover .background{
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+    background: linear-gradient(to bottom right, green, yellow);
+}
+
+.element6 .back-content .pname{
+    transform: translateY(-30px);
+    transition: all 1s;
+    opacity: 0;
+}
+
+.element6:hover .back-content .pname{
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.element6 .back-content .icons{
+    transform: translateY(30px);
+    transition: all 1s;
+    opacity: 0;
+}
+
+.element6:hover .back-content .icons{
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+/* Element 7 */
+
+.element7:hover .front{
+    transform: rotateY(180deg);
+    transform-origin: left;
+}
+
+.element7 .back-content{
+    transform: scale(0);
+    transition: all 0.5s;
+}
+
+.element7:hover .back-content{
+    transform: scale(1);
+}
+
+/* Element 8 */
+
+
+.element8 .background::before{
+    content: '';
+    position: absolute;
+    top: 30px;
+    bottom: 110%;
+    left: 110%;
+    right: 30px;
+    border-top: 5px solid white;
+    border-right: 5px solid white;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.element8 .background::after{
+    content: '';
+    position: absolute;
+    top: 110%;
+    bottom: 30px;
+    left: 30px;
+    right: 110%;
+    border-left: 5px solid white;
+    border-bottom: 5px solid white;
+    opacity: 0;
+    transition: all 1s;
+}
+
+.element8:hover .front{
+    transform: rotate(360deg) translateX(100%) scale(0);
+    opacity: 0;
+
+}
+
+.element8:hover .background::before{
+    opacity: 1;
+    bottom: 60%;
+    left: 65%;
+}
+
+.element8:hover .background::after{
+    opacity: 1;
+    top: 60%;
+    right: 65%;
+}
+
+.element8 .back-content{
+    transform: scale(1,0);
+    transition: all 1s 0.25s;
+}
+
+.element8:hover .back-content{
+    transform: scale(1,1);
+}
+
+/* Element 9 */
+
+.element9{
+    overflow: hidden;
+}
+
+.element9:hover .front{
+    transform: translateY(100%);
+}
+
+
+.element9 .background{
+    border: none;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+.element9:hover .background{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 760px) {
+    .heading{
+        font-size: 30px;
+    }    
+}
